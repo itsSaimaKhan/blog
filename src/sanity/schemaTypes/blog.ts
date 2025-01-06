@@ -6,12 +6,14 @@ export const blog = defineType ({
     type: 'document',
     
     fields: [
+        defineField (
     {
         name: 'Title',
         type: 'string',
         title: 'Title',
+        
 
-    },
+    }),
     {
         name: 'Paragraph',
         type: 'text',
