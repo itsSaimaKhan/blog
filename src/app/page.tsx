@@ -1,12 +1,28 @@
 import React from 'react'
 import Hero from './components/Hero'
+import { client } from '@/sanity/lib/client'
 
 
 
-const Homepage = () => {
+const Homepage = async () => {
+  const query = `*[_type == 'blog'] | order(_updateAt asc){
+  Title,Paragraph,image,
+  "slug":slug.current
+  }`
+
+  const data:Blog[] = await client.fetch(query)
+  // console.log(data)
+
   return (
+
     <div>
-        <Hero/>
+
+      { data.map((data:Blog)=>(
+          <Hero data={data} key={data.slug}/>
+      )
+
+      )}
+        
     </div>
   )
 }
