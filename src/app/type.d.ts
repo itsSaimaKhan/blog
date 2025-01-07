@@ -2,5 +2,6 @@ type Blog = {
     Title: string,
     Paragraph: string,
     image: any,
-    slug: string
+    slug: string,
+    block: string,
 }

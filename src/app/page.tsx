@@ -15,7 +15,7 @@ const Homepage = async () => {
 
   return (
 
-    <div>
+    <div >
 
       { data.map((data:Blog)=>(
           <Hero data={data} key={data.slug}/>
