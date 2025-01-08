@@ -1,5 +1,7 @@
+import CommentBox from "@/app/components/comment";
 import { client } from "@/sanity/lib/client";
 import { urlFor } from "@/sanity/lib/image";
+import { PortableText } from "next-sanity";
 import Image from "next/image";
 export default  async function page({params:{slug}}:{params:{slug:string}}) {
 
@@ -48,9 +50,11 @@ const data = await client.fetch(query)
       </section>
 
       {/* Main Body of Blog */}
-      <p className="text-lg leading-normal text-dark/80 dark:text-light/80">
+      <section className="text-lg leading-normal text-dark/80 dark:text-light/80">
+      <PortableText value={data.block}/>
+      <CommentBox/>
         
-      </p>
+      </section>
     </article>
   );
 }
