@@ -7,7 +7,7 @@ export default  async function page({params:{slug}}:{params:{slug:string}}) {
 
     const query =`*[_type == 'blog' && slug.current == "${slug}"]{
   Title, Paragraph, image, block
-} [0]`
+} `;
 
 const data = await client.fetch(query)
 
